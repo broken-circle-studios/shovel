@@ -92,6 +92,8 @@ class Shovel(object):
             tasks = []
             for root, _, files in os.walk(absolute):
                 files = [f for f in files if f.endswith('.py')]
+                files.sort()
+
                 for child in files:
                     absolute = os.path.join(root, child)
                     logger.info('Loading %s' % absolute)
