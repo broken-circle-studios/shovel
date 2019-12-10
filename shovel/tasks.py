@@ -245,7 +245,7 @@ class Task(object):
             return self._obj(*args, **kwargs)
         except Exception as exc:
             logger.exception('Failed to run task %s' % self.name)
-            raise(exc)
+            sys.exit(1)
 
     def capture(self, *args, **kwargs):
         '''Run a task and return a dictionary with stderr, stdout and the
